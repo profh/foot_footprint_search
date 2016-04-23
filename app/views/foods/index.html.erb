@@ -1,0 +1,95 @@
+<script>
+  $(function() {
+    new app.Foods;
+  });
+</script>
+<br>
+<div class="row">
+  <div class="col s5">
+    <h2>Foods</h2>
+
+    <nav>
+      <div class="nav-wrapper">
+        <div class="foods-search">
+          <%= form_tag search_results_path, method: :get do %>
+            <div class="input-field">
+              <%= text_field_tag :query, params[:query], placeholder: "Search for a food", id: "foods-search-txt" %>
+              <div class="results" id="foods-search-results"></div>
+              <label for="search"><i class="material-icons">search</i></label>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </nav>
+
+  </div>
+
+
+  <div class="col s7">
+    <div class="upload-card card light-green lighten-2 white-text">
+      <div class="card-content white-text">
+        <span class="card-title">Upload CSV</span>
+          
+          <div class="upload-row row">
+
+            <div class="col s8">
+              <%= form_tag import_foods_path do %>
+              <div class="file-field input-field">
+                <div class="btn">
+                  <span>File</span>
+                  <%= file_field_tag :file %>
+                </div>
+                <div class="file-path-wrapper">
+                  <input class="file-path validate" type="text">
+                </div>
+              </div>
+            </div>
+
+            <div class="col s4">
+              <%= submit_tag "Upload", name: nil, class: "upload-btn btn" %>
+            <% end %>
+            </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+
+<br>
+<table><thead>
+  <tr>
+    <th>Name</th>
+    <th>Food Description</th>
+    <th>Serving Description</th>
+    
+  </tr>
+ </thead><tbody>
+<% @foods.each do |food| %>
+  <tr>
+    <% if food.is_a?(Food) %>
+      <td><%= link_to food.name.titleize, food %></td>
+    <% else %>
+      <td><%= food.name.titleize %></td>
+    <% end %>
+    <td><%= food.food_description %></td>
+    <td><%= food.serving_description %></td>
+  </tr>
+<% end %>
+</tbody>
+</table>
+
+<br>
+  <% if @foods.first.is_a? Food %>
+    <ul class="pagination">
+    <li><%= will_paginate @foods %><li>
+    </ul>
+  <% end %>
+<br>
+
+<br><br>

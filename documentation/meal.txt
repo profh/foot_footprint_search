@@ -1,0 +1,7 @@
+MEAL
+This class creates a meal object. A meal consists of a m_type (meal type: Breakfast, Lunch, Dinner, Snack) and a hash of plate objects and the weight (percentage eaten) for each plate. The meal class also has functions to adjust the weights of each plate so they all sum to 1.00 and a function to convert the meal to a json string. Full tests have been written and can be found under models>meal_test.rb. These are a few example meal objects.
+
+* The total of the weights must add to 100s
+Meal.new('Breakfast', {breakfast_1 => .30, breakfast_2 => .60, breakfast_3 => .10})
+Meal.new('Breakfast', {breakfast_2 => .50, breakfast_3 => .50})
+Meal.new('Dinner', {chicken_dinner => 1.00})

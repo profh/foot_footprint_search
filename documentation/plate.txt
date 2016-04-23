@@ -1,0 +1,8 @@
+PLATE
+This class creates a plate object and has a function that will convert the plate object to json. A plate consists of a name and a hash of food objects and their quantity. Full tests have been written and can be found under models>plate_test.rb. These are a few example plate objects.
+
+* assuming objects in food hash are Food objects
+Plate.new('Breakfast 1', {orange_juice => 1, bread => 2, egg => 3})
+Plate.new('Breakfast 2', {orange_juice => 1, yogurt => 1, granola => 1})
+Plate.new('Breakfast 3', {milk => 1, cereal => 1, apple => 1})
+Plate.new('Chicken Dinner', {chicken => 1, mushrooms => 2, peppers => 2, rice => 2})

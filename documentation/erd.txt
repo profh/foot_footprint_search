@@ -1,0 +1,4 @@
+ERD
+As described in the README, a normalized foods ERD was originally created. Once the client explained that we wouldn't need a number of these tables, we backtracked and condensed the ERD into Foods, EnviroTypes, EnviroValues, NutriAttributes and NutriValues.
+
+After seeing the ERD, you will notice that EnviroTypes and NutriAttributes are exactly the same, as well as EnviroValues and NutriValues. We could have consolidated these 4 tables into 2 tables, however we had already created models, controllers and tests for these tables and our advisors did not want us spending extra time to make these changes.

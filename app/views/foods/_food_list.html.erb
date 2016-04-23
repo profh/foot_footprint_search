@@ -1,0 +1,26 @@
+<% unless foods.nil? || foods.empty? %>
+  <table id="food_list">
+    <thead>
+      <tr>
+        <th>&nbsp;</th>
+        <th>Name</th>
+        <th>Food Description</th>
+        <th>Serving Description</th>
+      </tr>
+   </thead>
+   <tbody>
+    <% foods.each do |food| %>
+      <tr>
+        <td><%= link_to image_tag('close.gif'), deselect_food_path(food.id) %></td>
+        <% if food.is_a?(Food) %>
+          <td><%= link_to food.name.titleize, food_path(food) %></td>
+        <% else %>
+          <td><%= food.name.titleize %></td>
+        <% end %>
+        <td><%= food.food_description %></td>
+        <td><%= food.serving_description %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+<% end %>

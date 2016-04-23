@@ -1,0 +1,57 @@
+<br>
+<h5><a class="red-text" href="/foods">&#8592; Foods</a></h5>
+
+<br>
+<h3><%= @food.name.titleize %></h3>
+<p><%= @food.serving_description %><br><%= @food.food_description %></p>
+
+
+<div class="row">
+    <div class="col s12">
+      <ul class="tabs">
+        <li class="tab col s3"><a class="active" href="#enviro">Enviromental Info</a></li>
+        <li class="tab col s3"><a href="#nutri">Nutritional Info</a></li>
+      </ul>
+    </div>
+    <div id="enviro" class="container">
+      <table class="enviro-table"><thead>
+        <tr>
+          <th>Type</th>
+          <th>Value</th>
+          <th>Units</th>
+        </tr>
+       </thead><tbody>
+       <% @enviro_types.each do |type| %>
+        <tr>
+          <td><%= type.name %></td>
+          <td style="text-align:right"><%= number_with_precision(@food.find_enviro_values_for_type(type.name), precision: 2, delimiter: ',') %></td>
+          <td><%= type.units %></td>
+        </tr>
+        <% end %>
+      </tbody>
+      </table>
+    </div>
+
+    <div id="nutri" class="container">
+      <table class="nutri-table" style="width:45%"><thead>
+        <tr>
+          <th>Attribute</th>
+          <th>Value</th>
+          <th>Units</th>
+        </tr>
+       </thead><tbody>
+        <% @nutri_attributes.each do |attribute| %>
+        <tr>
+          <td><%= attribute.name %></td>
+          <td style="text-align:right"><%= number_with_precision(@food.find_nutri_values_for_attribute(attribute.name), precision: 2, delimiter: ',') %></td>
+          <td><%= attribute.units %></td>
+          <td></td>
+        </tr>
+        <% end %>
+      </tbody>
+      </table>
+    </div>
+  </div>
+
+<br><br>
+

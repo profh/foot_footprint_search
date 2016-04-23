@@ -1,0 +1,8 @@
+<h4>Query results for: <%= params[:query] %></h4>
+<ol>
+<% @search_items.each do |result| %> 
+	<li><h5><%= link_to result.name.titleize, result %></h5></li>
+<% end %>
+</ol>
+<br>
+<br>

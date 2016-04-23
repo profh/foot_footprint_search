@@ -1,0 +1,119 @@
+<!-- nav for home page -->
+
+  <nav>
+    <div class="nav-wrapper">
+      <a href="/home" class="brand-logo center white-text">Enviromental Foodprint </a>
+      <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+      <ul class="left hide-on-med-and-down">
+        <li><a href="/about">About</a></li>
+        <li><a href="/calc">Calculator</a></li>
+        <li><a href="/news">News</a></li>
+      </ul>
+      <ul class="side-nav" id="slide-out">
+        <li><a href="/about">About</a></li>
+        <li><a href="/calc">Calculator</a></li>
+        <li><a href="/news">News</a></li>
+      </ul>
+    </div>
+  </nav>
+
+<% if current_page?(calc_path) %>
+
+  <!-- Nav for calculator portion -->
+  <div class="row">
+      <ul class="tabs">
+        <li class="tab col s2"><a href="#demographics"> Demographics </a></li>
+        <li class="tab col s2"><a href="#breakfasts"> Breakfasts </a></li>
+        <li class="tab col s2"><a href="#lunches"> Lunches </a></li>
+        <li class="tab col s2"><a href="#dinners"> Dinners </a></li>
+        <li class="tab col s2"><a href="#snacks"> Snacks </a></li>
+        <li class="tab col s2"><a href="#diet"> Diet </a></li>
+        <li class="tab col s2"><a href="#compare"> Compare </a></li>
+      </ul>
+  </div>
+
+  <!-- Demographics form-->
+  <div id="demographics" class="container">
+    <h3 align="center"> Welcome! </h3>
+
+    <br></br>
+
+    <%= form_tag(demographics_path, method: :get) do %>
+      <div class = "row">
+        <form class="col s12">
+
+          <p>Use this site in:</p>
+          <div class = "row">
+            <div class = "col">
+              <a class="waves-effect waves-light btn"> US Customary </a>
+              <a class="waves-effect waves-light btn"> Metric </a>
+            </div>
+          </div>
+
+          <p>Age:</p>
+          <div class="row">
+            <div class="input-field col s2">
+              <select>
+                <option value="disabled selected">Select</option>
+                <% (19..100).each do |i|%>
+                  <option value=<%"#{i}"%>> <%= "#{i}" %> </option>
+                <% end %>
+              </select>
+            </div>
+          </div>
+
+          <p>Select Gender:</p>
+          <div class="row">
+            <div class="radio-input input-field col">
+              <input class="with-gap" name="group1" type="radio" id="male" />
+              <label for="male">Male</label>
+              <br>
+              <input class="with-gap" name="group1" type="radio" id="female" />
+              <label for="female">Female</label>
+            </div>
+          </div>
+
+          <p>Enter Height:</p>
+          <div class="row">
+            <div class="col 3">
+            </div>
+            <div class="input-field col s2">
+              <input id="height" type="number" class="validate" min="0" max = "8">
+              <label for="height">Feet</label>
+            </div>
+            <div class="input-field col s2">
+              <input id="height" type="number" class="validate" min="0" max="11">
+              <label for="height">Inches</label>
+            </div>
+          </div>
+
+          <p>Enter Weight:</p>
+          <div class="row">
+            <div class="input-field col s2">
+              <input id="weight" type="number" class="validate" min="0">
+              <label for="weight">Pounds</label>
+            </div>
+          </div>
+
+          <p>Select Activity Level:</p>
+          <div class="row">
+            <div class="col s4">
+            <p class="range-field">
+              <input type="range" id="activitylvl" min="1" max="5" />
+            </p>
+            </div>
+          </div>
+
+        <% end %>
+      </div>
+
+      <button class="btn waves-effect waves-light" type="submit" name="action">Continue</button>
+
+    </form>
+  </div>
+  <br></br>
+
+
+<% end %>
+
+

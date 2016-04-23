@@ -1,0 +1,28 @@
+<div class="row">
+  <div>
+    <h2>Food Search</h2>
+    <%= form_tag search_add_path, method: :get do %>
+      <div class="foods-search">
+        <input type="text" name="food_name" id="foods-search-txt" autofocus>&nbsp;&nbsp;<%= submit_tag "Add", name: nil, class: "upload-btn btn" %>
+        <div id="foods-search-results" class="results"></div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col s8">
+    <% unless @foods.nil? || @foods.empty? %>
+      <%= render :partial => "food_list", locals: { foods: @foods } %>
+    <% end %>
+  </div>
+  <div class="col s3 offset-s1 card">
+    <!-- calculations could go here... -->
+  </div>
+</div>
+
+<script>
+  $(function() {
+    new app.Foods;
+  });
+</script>

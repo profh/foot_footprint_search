@@ -1,0 +1,23 @@
+CALCULATOR OVERVIEW
+The foodprint calculator should do the following:
+	1. Require users to enter demographics (gender, age, height, weight)
+	2. Based on demographics, calculate the number of calories user must consume in order to maintain weight (request 	 of client)
+	3. Direct user to Breakfast Plate page
+		 - user sees plate view with plate name auto-generated: Breakfast 1
+		 - user adds food through search bar or category menu
+		 - user can change quantity of servings eaten
+		 - user sees nutritional and environmental data for food added to plate
+		 - user sess total nutritional and environmental data for entire plate
+		 - user saves plate and is asked to rename plate from Breakfast 1 to something new
+		 - user does (not) rename plate is is directed to Breakfast Meal page
+	4. Breakfast Meal page
+		 - user sees 'average breakfast' nutritional and environmental totals (calculated by taking weighted average of 	plates in meal)
+		 - user can change the weight of each plate (the percentage of time that they eat this particular breakfast)
+	5. User can continue through Lunch, Dinner, Snack, but there is no need for them to go sequentially
+	6. Diet page
+		 - shows nutritional and enviromental totals for Diet (a weighted average of 'Avg Breakfast/Lunch/Dinner/Snack')
+		 - shows nutritional and enviromental totals for 'Avg Breakfast/Lunch/Dinner/Snack'
+	7. Compare Page
+	   - compares user diet to US recommended diet for specific user demographics, avg US diet, avg vegetarian diet,
+	   	 etc. (whatever other diets client wants to compare with)
+	   - also shows graphs and charts to compare with

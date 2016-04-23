@@ -1,0 +1,8 @@
+SERVICES
+A service is a class that holds functionality that is related to a model or models, but should not necessarily be in the model. So far, this project has three different services.
+
+1. EnviroService: this service performs calculations related to EnviroTypes and EnviroValues. The EnviroService calculates the environmental totals for each food and plate and calculates the weighted average of these totals for each meal. Tests for this service can be found under services>enviro_service_test.rb and  in models>food_test.rb.
+
+2. NutriService: just like EnviroService, but for NutriAttributes and NutriValues. The NutriService calculates the nutritional totals for each food and plate and calculates the weighted average of these totals for each meal. Tests for this service can be found under services>nutri_service_test.rb and  in models>food_test.rb.
+
+3. Importer: this service handles importing data from a CSV into the postgres database. The importer service is called in FoodsController from the foods index view. To save time, formal tests for this service were not written, but did test the import in rails console.

@@ -1,0 +1,4 @@
+NULL OBJECTS
+THe client requested to have a number of dummy columns at the end of the spreadsheet in order to do calculations and save other data. To handle any nil errors that might arise if cells in these columsn are empty, we created null objects that won't break the app.
+
+These null objects mimic Food, EnviroType, EnviroValue, NutriAttribute, and NutriValue objects. If we were to call an object that contained a nill value, instead of showing a 'can't display nil' error, the app uses the null object instead.

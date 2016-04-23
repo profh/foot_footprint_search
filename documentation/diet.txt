@@ -1,0 +1,2 @@
+DIET
+This class has not been written, but it will create a diet object that consist of all meals (Breakfast, Lunch, Dinner, Snack) that the user creates. As we discussed, the client wants the app to calculate the user's diet by taking the weighted average of the meals in the diet.
